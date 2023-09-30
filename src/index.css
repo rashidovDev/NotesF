@@ -1,13 +1,80 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;500;700&display=swap');
+
+body{
+  font-family: 'Montserrat', sans-serif;
+font-family: 'Open Sans', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.ff{
+  border: 0;
+  outline: 0;
+  border-bottom: 2px solid #999;
+}
+
+:root{
+  --mainColor: #5C3EBA;
+  --mainColorLight : #5767aa;
+  --secondaryColor : #DB2B39;
+  --textColor : #eee
+}
+
+/* NAVBAR */
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  background-color: var(--mainColor);
+  color: var(--textColor);
+}
+
+header .nav-btn {
+  padding:5px ;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--textColor);
+  display: none;
+  opacity: 0;
+  color: rgb(252, 248, 248);
+}
+
+@media only screen and ( max-width : 1024px ){
+  header .nav-btn {
+    display: inline;
+    opacity: 1;
+  }
+
+  header nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    background-color: var(--mainColor);
+    transition: 1s;
+    transform: translateY(-100vh);
+  }
+
+	header .responsive_nav {
+		transform: none;
+	}
+
+  nav .nav-close-btn {
+   position: absolute;
+   top: 2rem;
+   right: 2rem;
+  }
+
 }
